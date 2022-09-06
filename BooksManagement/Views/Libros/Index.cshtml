@@ -1,0 +1,52 @@
+﻿@using BooksManagement.Models
+
+@model List<Libro>
+@{
+    ViewData["Title"] = "Libros";
+}
+
+<h1>Listado de Libros</h1>
+<h5>Modulo con el listado de Libros existentes.</h5>
+
+@Html.ActionLink("Agregar","Agregar","Libros", null,new {@class="btn btn-success"})
+
+<table class="table  table-hover table-table-bordered">
+    <thead>
+        <tr>
+            <td>@Html.LabelFor(p=>Model[0].Id)</td>
+            <td>@Html.LabelFor(p=>Model[0].UserId)</td>
+            <td>@Html.LabelFor(p=>Model[0].Title)</td>
+            <td>@Html.LabelFor(p=>Model[0].Body)</td>
+            <td>Operaciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserId</td>
+                <td>@item.Title</td>
+                <td>@item.Body</td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", "Caja", new {id=@item.Id},new { @class="btn btn-primary"})
+                    @Html.ActionLink("Eliminar", "Eliminar", "Caja", new {id=@item.Id},new { @class="btn btn-danger"})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function eliminar()
+    {
+        if(confirm("¿Desea elimianr el registro realmente?") == 1)
+        {
+            alert("Se elimino correctamente");
+        }
+        else
+        {
+            event.preventDefault();
+        }
+    }
+</script>

@@ -1,0 +1,55 @@
+﻿@using BooksManagement.Models
+@model Usuario
+
+@{
+    ViewData["Title"] = "Crear Usuario";
+}
+
+<h1>Crear Usuario</h1>
+<h5>Modulo para la creacion del Usuario.</h5>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-controller="Usuarios" asp-action="Crear">
+    <div class="mb-3">
+        <label asp-for="Nombres" class="form-label"></label>
+        <input type="text" asp-for="Nombres" class="form-control" />
+        <span asp-validation-for="Nombres" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Apellidos" class="form-label"></label>
+        <input asp-for="Apellidos" class="form-control" />
+        <span asp-validation-for="Apellidos" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NumIdentificacion" class="form-label"></label>
+        <input asp-for="NumIdentificacion" class="form-control" />
+        <span asp-validation-for="NumIdentificacion" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    
+     <div class="mb-3">
+        <label asp-for="Direccion" class="form-label"></label>
+        <input asp-for="Direccion" class="form-control" />
+        <span asp-validation-for="Direccion" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TelefonoFijo" class="form-label"></label>
+        <input asp-for="TelefonoFijo" class="form-control" />
+        <span asp-validation-for="TelefonoFijo" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
